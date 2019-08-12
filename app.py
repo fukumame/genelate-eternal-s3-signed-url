@@ -2,12 +2,16 @@ import boto3
 from flask import Flask, request, redirect
 import jwt
 import os
+from dotenv import load_dotenv
+from botocore.client import Config
+
+load_dotenv()
 
 app = Flask(__name__)
 
 secret = os.environ['SECRET']
 
-s3_client = boto3.client('s3')
+s3_client = boto3.client('s3', config=Config(region_name=os.environ.get("AWS_REGION_NAME")))
 
 
 def generate_presigned_url(jwt):
