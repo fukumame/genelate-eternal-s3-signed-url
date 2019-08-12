@@ -1,7 +1,7 @@
 {
   "name": "Labelbox proxy",
   "description": "A proxy service for generating presigned urls",
-  "repository": "https://github.com/Labelbox/signed-url-example",
+  "repository": "https://github.com/fukumame/signed-url-example",
   "env": {
     "SECRET": {
       "description": "A JWT secret used to generate your signed urls",
