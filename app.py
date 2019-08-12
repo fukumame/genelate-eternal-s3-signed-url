@@ -16,7 +16,7 @@ s3_client = boto3.client('s3', config=Config(region_name=os.environ.get("AWS_REG
 
 def generate_presigned_url(jwt):
     url = s3_client.generate_presigned_url(ClientMethod='get_object', Params={
-        'Bucket': jwt['bucket'], 'Key': jwt['key']}, ExpiresIn='3600')
+        'Bucket': jwt['bucket'], 'Key': jwt['key']}, ExpiresIn=3600, HttpMethod = 'GET')
     return url
 
 
