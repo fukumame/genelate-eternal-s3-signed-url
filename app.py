@@ -4,10 +4,16 @@ import jwt
 import os
 from dotenv import load_dotenv
 from botocore.client import Config
+from flask_cors import CORS
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app, origins=[
+    "https://app.labelbox.com",
+    "https://editor.labelbox.com",
+    "http://localhost"
+])
 
 secret = os.environ['SECRET']
 
@@ -34,4 +40,4 @@ def pull_url():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=5001)
